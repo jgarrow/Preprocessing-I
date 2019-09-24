@@ -408,7 +408,7 @@ header .menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 250px;
+  max-width: 350px;
   margin-right: 2rem;
 }
 @media all and (max-width: 768px) {
@@ -500,6 +500,10 @@ header .menu {
 }
 .container .content .card .row-wrapper p {
   margin-bottom: 0.5rem;
+}
+.container .content.intro p {
+  padding: 0 2rem 2rem 2rem;
+  line-height: 1.5;
 }
 .container .content.education .card {
   display: flex;

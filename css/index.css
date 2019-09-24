@@ -311,6 +311,18 @@ body {
   font-family: Roboto Condensed, sans-serif;
   font-size: 100%;
 }
+.flex-row-aligncenter {
+  display: flex;
+  align-items: center;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-justifyevenly {
+  display: flex;
+  justify-content: space-evenly;
+}
 header {
   display: flex;
   width: 100%;
@@ -321,7 +333,7 @@ header {
   /* "Hide" checkbox -- moves it off screen*/
   /* Hide hamburger for bigger screens */
 }
-@media screen and (max-width: 768px) {
+@media all and (max-width: 768px) {
   header {
     display: grid;
     grid-template-areas: "title   title   hamburger" "nav     nav     nav";
@@ -335,7 +347,7 @@ header h1 {
   color: #ffffff;
   font-size: 1.5rem;
 }
-@media screen and (max-width: 768px) {
+@media all and (max-width: 768px) {
   header h1 {
     grid-area: title;
   }
@@ -350,7 +362,7 @@ header #menu-btn {
   top: -100%;
   left: -100%;
 }
-@media screen and (max-width) {
+@media all and (max-width: 768px) {
   header #menu-btn {
     display: none;
   }
@@ -358,7 +370,7 @@ header #menu-btn {
 header .menu-icon {
   visibility: hidden;
 }
-@media screen and (max-width: 768px) {
+@media all and (max-width: 768px) {
   header .menu-icon {
     grid-area: hamburger;
     cursor: pointer;
@@ -394,12 +406,12 @@ header .menu-icon {
 }
 header .menu {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   max-width: 250px;
   margin-right: 2rem;
 }
-@media screen and (max-width: 768px) {
+@media all and (max-width: 768px) {
   header .menu {
     grid-area: nav;
     max-width: unset;
@@ -420,7 +432,7 @@ header .menu {
     color: rgba(53, 56, 73, 0.95);
   }
 }
-@media screen and (max-width: 768px) {
+@media all and (max-width: 768px) {
   header .menu-btn:checked ~ .menu {
     max-height: 250px;
   }
@@ -496,7 +508,7 @@ header .menu {
   width: 75%;
   align-self: center;
 }
-@media screen and (max-width: 768px) {
+@media all and (max-width: 768px) {
   .container .content.education .card .education-content-wrapper {
     width: 100%;
   }
@@ -506,7 +518,7 @@ header .menu {
   padding-right: 1rem;
   align-self: center;
 }
-@media screen and (max-width: 768px) {
+@media all and (max-width: 768px) {
   .container .content.education .card .education-logo {
     display: none;
   }
@@ -539,7 +551,9 @@ header .menu {
 .container .content.experience ul {
   margin-top: 0;
   margin-left: 1rem;
+  margin-right: 2rem;
   padding-left: 4rem;
+  padding-bottom: 1.5rem;
 }
 .container .content.experience ul li {
   line-height: 2;
@@ -572,17 +586,46 @@ footer {
   color: #ffffff;
   display: flex;
   align-items: center;
-}
-footer ul {
+  flex-flow: column wrap;
+  justify-content: center;
   margin: 0 auto;
+}
+footer form {
+  width: 60%;
+  line-height: 2;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+footer form label {
+  text-transform: uppercase;
+  color: #ffffff;
+}
+footer form input,
+footer form textarea {
+  background: rgba(53, 56, 73, 0.95);
+  border: solid 2px rgba(255, 255, 255, 0.125);
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0 1.5rem 0;
+}
+footer form input input:select,
+footer form textarea input:select {
+  background: rgba(255, 255, 255, 0.025);
+}
+footer .contact-icons {
+  margin: 0 auto;
+  padding-left: 0;
   width: 60%;
   display: flex;
   justify-content: space-evenly;
+  list-style: none;
 }
-footer ul a {
+footer .contact-icons a {
   color: #ffffff;
 }
-footer ul a li {
+footer .contact-icons a li {
   cursor: pointer;
   list-style: none;
   font-size: 1rem;

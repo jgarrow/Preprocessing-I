@@ -364,6 +364,21 @@ html, body {
 @headerBackgroundColor: rgba(53, 56, 73, 0.95);
 @headerTextColor: #ffffff;
 
+.flex-row-aligncenter {
+	display: flex;
+	align-items: center;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-justifyevenly {
+	display: flex;
+	justify-content: space-evenly;
+}
+
 header {
 	display: flex;
 	width: 100%;
@@ -372,7 +387,7 @@ header {
 	top: 0;
 	background-color: @headerBackgroundColor;
 
-	@media screen and (max-width: 768px) {
+	@media all and (max-width: 768px) {
 		display: grid;
     	grid-template-areas:
        		"title   title   hamburger"
@@ -388,7 +403,7 @@ header {
 		color: @headerTextColor;
 		font-size: 1.5rem;
 
-		@media screen and (max-width: 768px) {
+		@media all and (max-width: 768px) {
 			grid-area: title;
 		}
 	}
@@ -405,7 +420,7 @@ header {
 	top: -100%;
 	left: -100%;
 
-		@media screen and (max-width) {
+		@media all and (max-width: 768px) {
 			display: none;
 		}
 	}
@@ -414,7 +429,7 @@ header {
 	.menu-icon {
 	visibility: hidden;
 
-		@media screen and (max-width: 768px) {
+		@media all and (max-width: 768px) {
 			grid-area: hamburger;
 			cursor: pointer;
 			justify-self: flex-end;
@@ -429,7 +444,6 @@ header {
 				height: 2px;
 				width: 18px;
 				position: relative;
-				// transition: background .2s ease-out;
 			}
 
 			.navicon:before {
@@ -453,13 +467,12 @@ header {
   	}
 
 	.menu {
-		display: flex;
+		.flex-row-aligncenter();
 		justify-content: space-between;
-		align-items: center;
 		max-width: 250px;
 		margin-right: 2rem;
 
-		@media screen and (max-width: 768px) {
+		@media all and (max-width: 768px) {
 			grid-area: nav;
 			max-width: unset;
 			max-height: 0;
@@ -468,12 +481,10 @@ header {
 			margin: 0;
 			padding: 0;
 			background-color: @headerTextColor;
-			display: flex;
-			flex-direction: column;
+			.flex-column();
 
 			a {
 				padding: 20px 20px;
-				// border-right: 1px solid #f4f4f4;
 				background-color: #eee;
 				width: 100%;
 				text-align: center;
@@ -482,7 +493,7 @@ header {
 		}
 	}
 
-	@media screen and (max-width: 768px) {
+	@media all and (max-width: 768px) {
 		.menu-btn:checked ~ .menu {
 			max-height: 250px;
 		}
@@ -575,17 +586,17 @@ header {
 					width: 75%;
 					align-self: center;
 
-					@media screen and (max-width: 768px) {
+					@media all and (max-width: 768px) {
 						width: 100%;
 					}
 				}
-				
+
 				.education-logo {
 					width: 25%;
 					padding-right: 1rem;
 					align-self: center;
 
-					@media screen and (max-width: 768px) {
+					@media all and (max-width: 768px) {
 						display: none;
 					}
 	
@@ -626,7 +637,9 @@ header {
 			ul {
 				margin-top: 0;
 				margin-left: 1rem;
+				margin-right: 2rem;
 				padding-left: 4rem;
+				padding-bottom: 1.5rem;
 
 				li {
 					line-height: 2;
@@ -670,14 +683,44 @@ footer {
 	height: 7rem;
 	background-color: @headerBackgroundColor;
 	color: @headerTextColor;
-	display: flex;
-	align-items: center;
+	.flex-row-aligncenter();
+	flex-flow: column wrap;
+	justify-content: center;
+	margin: 0 auto;
 
-	ul {
-		margin: 0 auto;
+	form {
 		width: 60%;
-		display: flex;
-		justify-content: space-evenly;
+		line-height: 2;
+		.flex-justifyevenly();
+		flex-wrap: wrap;
+
+		label {
+			text-transform: uppercase;
+			color: @headerTextColor;
+		}
+
+		input, textarea {
+			background: @headerBackgroundColor;
+			border: solid 2px rgba(255, 255, 255, 0.125);
+			border-radius: 5px;
+			color: @headerTextColor;
+			padding: 0.5rem 1rem;
+			margin: 0.5rem 0 1.5rem 0;
+
+			input:select {
+				background: rgba(255, 255, 255, 0.025);
+			}
+		}
+
+		
+	}
+
+	.contact-icons {
+		margin: 0 auto;
+		padding-left: 0;
+		width: 60%;
+		.flex-justifyevenly();
+		list-style: none;
 
 		a {
 			color: @headerTextColor;
@@ -690,8 +733,6 @@ footer {
 				border: solid 2px rgba(255, 255, 255, 0.125);
 				border-radius: 100%;
 			}
-		}
-		
-		
+		}	
 	}
 }

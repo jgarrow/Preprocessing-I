@@ -330,6 +330,7 @@ header {
   z-index: 9000;
   top: 0;
   background-color: rgba(53, 56, 73, 0.95);
+  box-shadow: 1px 0.5px 0px 2px rgba(187, 187, 187, 0.5);
   /* "Hide" checkbox -- moves it off screen*/
   /* Hide hamburger for bigger screens */
 }
@@ -426,15 +427,19 @@ header .menu {
   }
   header .menu a {
     padding: 20px 20px;
-    background-color: #eee;
+    background-color: #fff;
     width: 100%;
     text-align: center;
     color: rgba(53, 56, 73, 0.95);
+    border-width: 1px 0px 0px 0px;
+    border-color: rgba(53, 56, 73, 0.1);
+    border-style: solid;
   }
 }
 @media all and (max-width: 768px) {
   header .menu-btn:checked ~ .menu {
     max-height: 250px;
+    box-shadow: 1px 0.5px 0px 2px rgba(187, 187, 187, 0.3);
   }
   header .menu-btn:checked ~ .menu-icon .navicon {
     background: transparent;
@@ -489,7 +494,7 @@ header .menu {
 .container .content .card .row-wrapper .company-logo img {
   max-width: 100%;
   max-height: 56px;
-  margin: 5px 0;
+  margin: 5px 0 0 0;
 }
 .container .content .card .row-wrapper:last-child {
   border-bottom: none;
@@ -632,7 +637,7 @@ footer .contact-icons a {
 footer .contact-icons a li {
   cursor: pointer;
   list-style: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding: 5px;
   border: solid 2px rgba(255, 255, 255, 0.125);
   border-radius: 100%;

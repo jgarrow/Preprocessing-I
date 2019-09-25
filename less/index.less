@@ -363,6 +363,7 @@ html, body {
 
 @headerBackgroundColor: rgba(53, 56, 73, 0.95);
 @headerTextColor: #ffffff;
+@cardBackgroundColor: #fff;
 
 .flex-row-aligncenter {
 	display: flex;
@@ -386,6 +387,7 @@ header {
 	z-index: 9000;
 	top: 0;
 	background-color: @headerBackgroundColor;
+	box-shadow: 1px 0.5px 0px 2px rgba(187, 187, 187, 0.5);
 
 	@media all and (max-width: 768px) {
 		display: grid;
@@ -485,10 +487,14 @@ header {
 
 			a {
 				padding: 20px 20px;
-				background-color: #eee;
+				background-color: @cardBackgroundColor;
 				width: 100%;
 				text-align: center;
 				color: @headerBackgroundColor;
+				border-width: 1px 0px 0px 0px; 
+				border-color: rgba(53, 56, 73, 0.1); 
+				// border-radius: 4px; 
+				border-style: solid; 
 			}
 		}
 	}
@@ -496,6 +502,7 @@ header {
 	@media all and (max-width: 768px) {
 		.menu-btn:checked ~ .menu {
 			max-height: 250px;
+			box-shadow: 1px 0.5px 0px 2px rgba(187, 187, 187, 0.3);
 		}
 
 		.menu-btn:checked ~ .menu-icon .navicon {
@@ -535,7 +542,7 @@ header {
 
 		.card {
 			margin-bottom: 2rem;
-			background-color: #fff;
+			background-color: @cardBackgroundColor;
 			border-width: 1px 0px 0px 0px; 
 			border-color: rgba(255, 255, 255, 1); 
 			border-radius: 4px; 
